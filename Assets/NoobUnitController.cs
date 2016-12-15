@@ -22,7 +22,7 @@ public class NoobUnitController : WalkingUnit
         }
         else
         {
-            rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
+//            rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
         }
     }
 

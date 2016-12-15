@@ -10,9 +10,14 @@ public class WalkingUnit : MonoBehaviour
         return TouchingGround;
     }
 
+    protected bool IsFloorObject(GameObject go)
+    {
+        return go.tag == "floor";
+    }
+
     protected void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.gameObject.tag == "floor")
+        if (IsFloorObject(collision.collider.gameObject))
         {
             TouchingGround = true;
         }
@@ -20,7 +25,7 @@ public class WalkingUnit : MonoBehaviour
 
     protected void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.gameObject.tag == "floor")
+        if (IsFloorObject(collision.collider.gameObject))
         {
             TouchingGround = false;
         }
