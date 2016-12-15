@@ -9,7 +9,8 @@
 *.pidb
 Thumbs.db
 
-
+/.idea/.idea.*/.idea/*
+!/.idea/.idea.*/.idea/codeStyleSettings.xml
 
 /[Tt]emp/
 /[Ll]ibrary/
