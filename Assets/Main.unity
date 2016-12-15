@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -359,10 +359,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c9e6d0ddcb2ae47b4eaf527b4d0511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evil: 0
-  spawnerPrefab: {fileID: 1639531143964946, guid: 97127b365fde49749987aca771ffe0b9,
+  Evil: 0
+  SpawnerPrefab: {fileID: 1639531143964946, guid: 97127b365fde49749987aca771ffe0b9,
     type: 2}
-  enemy: {fileID: 1878995584}
+  Enemy: {fileID: 1878995584}
 --- !u!1 &1629580739
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,10 +551,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c9e6d0ddcb2ae47b4eaf527b4d0511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evil: 1
-  spawnerPrefab: {fileID: 1639531143964946, guid: 97127b365fde49749987aca771ffe0b9,
+  Evil: 0
+  SpawnerPrefab: {fileID: 1639531143964946, guid: 97127b365fde49749987aca771ffe0b9,
     type: 2}
-  enemy: {fileID: 1604584923}
+  Enemy: {fileID: 1604584923}
 --- !u!1 &2028976274
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e065bb844e861c42bb03ef95ca69b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: 0
-  rotationSpeed: 30
-  moveSpeed: 20
+  Rotation: 0
+  RotationSpeed: 10
+  MoveSpeed: 20

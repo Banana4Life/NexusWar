@@ -120,6 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a342c15359e1148864f090fd1d68e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingGround: 0
-  targetNexus: {fileID: 0}
-  speed: 786.61
+  TouchingGround: 0
+  TargetNexus: {fileID: 0}
+  Speed: 300
