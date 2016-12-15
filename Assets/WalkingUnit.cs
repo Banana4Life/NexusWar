@@ -3,25 +3,26 @@ using UnityEngine;
 
 public class WalkingUnit : MonoBehaviour
 {
-	public bool touchingGround = false;
+    public bool TouchingGround;
 
-	public bool IsOnGround()
-	{
-		return touchingGround;
-	}
+    public bool IsOnGround()
+    {
+        return TouchingGround;
+    }
 
-	protected void OnCollisionEnter(Collision collision)
-	{
-		if (collision.collider.gameObject.tag == "floor") {
-			touchingGround = true;
-		}
-	}
+    protected void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.tag == "floor")
+        {
+            TouchingGround = true;
+        }
+    }
 
-	protected void OnCollisionExit(Collision collision)
-	{
-		if (collision.collider.gameObject.tag == "floor") {
-			touchingGround = false;
-		}
-	}
+    protected void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.gameObject.tag == "floor")
+        {
+            TouchingGround = false;
+        }
+    }
 }
-
