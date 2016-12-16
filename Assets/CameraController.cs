@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsMouseMiddlePressed())
+        if (IsRotating())
         {
             Cursor.visible = false;
             if (MouseLockedWhileRotating && !Application.isEditor)
@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
         return RawInput ? Input.GetAxisRaw(axisName) : Input.GetAxis(axisName);
     }
 
-    bool IsMouseMiddlePressed()
+    bool IsRotating()
     {
         return Input.GetAxisRaw("Fire3") > 0;
     }
@@ -58,22 +58,23 @@ public class CameraController : MonoBehaviour
 
         var dx = GetAxis("Horizontal");
         var dy = GetAxis("Vertical");
+        var notRotating = !IsRotating();
 
         var intention = Vector3.zero;
-        if (!IsMouseMiddlePressed() && x >= 0 && x <= BorderWidth || dx < 0)
+        if (notRotating && x >= 0 && x <= BorderWidth || dx < 0)
         {
             intention += -transform.right;
         }
-        else if (!IsMouseMiddlePressed() && x >= Screen.width - BorderWidth && x <= Screen.width || dx > 0)
+        else if (notRotating && x >= Screen.width - BorderWidth && x <= Screen.width || dx > 0)
         {
             intention += transform.right;
         }
 
-        if (!IsMouseMiddlePressed() && y >= 0 && y <= BorderWidth || dy < 0)
+        if (notRotating && y >= 0 && y <= BorderWidth || dy < 0)
         {
             intention += -transform.forward;
         }
-        else if (!IsMouseMiddlePressed() && y >= Screen.height - BorderWidth && y <= Screen.height || dy > 0)
+        else if (notRotating && y >= Screen.height - BorderWidth && y <= Screen.height || dy > 0)
         {
             intention += transform.forward;
         }
@@ -97,8 +98,9 @@ public class CameraController : MonoBehaviour
     {
         var wheel = GetAxis("Mouse ScrollWheel");
         var direction = transform.forward;
+        var camera = GetComponent<Camera>();
         RaycastHit hit;
-        if (Physics.Raycast(GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hit))
+        if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
         {
             direction = (hit.point - transform.position).normalized;
         }
