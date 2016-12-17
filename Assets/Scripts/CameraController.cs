@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
     public float MoveSpeed = 20;
@@ -95,9 +96,9 @@ public class CameraController : MonoBehaviour
     {
         var wheel = GetAxis("Mouse ScrollWheel");
         var direction = transform.forward;
-        var camera = GetComponent<Camera>();
+        var cam = gameObject.GetComponent<Camera>();
         RaycastHit hit;
-        if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+        if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit))
         {
             direction = (hit.point - transform.position).normalized;
         }
