@@ -19,7 +19,7 @@ public class UnitController : MonoBehaviour
         }
         if (navAgent.destination == target)
         {
-            navAgent.Resume();
+            navAgent.isStopped = false;
         }
         else
         {
@@ -29,7 +29,7 @@ public class UnitController : MonoBehaviour
 
     public void StopMoving()
     {
-        navAgent.Stop();
+        navAgent.isStopped = true;
     }
 
     protected void OnCollisionEnter(Collision collision)
