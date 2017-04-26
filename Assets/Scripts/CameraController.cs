@@ -48,6 +48,11 @@ public class CameraController : MonoBehaviour
         return Input.GetAxisRaw("Fire3") > 0;
     }
 
+    bool IsInScreen(Vector3 pos)
+    {
+        return pos.x >= 0 && pos.x <= Screen.width && pos.y >= 0 && pos.y <= Screen.height;
+    }
+
     void Move()
     {
         var mousePos = Input.mousePosition;
@@ -59,20 +64,20 @@ public class CameraController : MonoBehaviour
         var notRotating = !IsRotating();
 
         var intention = Vector3.zero;
-        if (notRotating && x >= 0 && x <= BorderWidth || dx < 0)
+        if (notRotating && IsInScreen(mousePos) && x <= BorderWidth || dx < 0)
         {
             intention += -transform.right;
         }
-        else if (notRotating && x >= Screen.width - BorderWidth && x <= Screen.width || dx > 0)
+        else if (notRotating && IsInScreen(mousePos) && x >= Screen.width - BorderWidth || dx > 0)
         {
             intention += transform.right;
         }
 
-        if (notRotating && y >= 0 && y <= BorderWidth || dy < 0)
+        if (notRotating && IsInScreen(mousePos) && y <= BorderWidth || dy < 0)
         {
             intention += -transform.forward;
         }
-        else if (notRotating && y >= Screen.height - BorderWidth && y <= Screen.height || dy > 0)
+        else if (notRotating && IsInScreen(mousePos) && y >= Screen.height - BorderWidth || dy > 0)
         {
             intention += transform.forward;
         }
